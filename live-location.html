@@ -2,6 +2,7 @@
     This code will ask the user for permission to access their location.
     Then their latitude and longitude will be displayed in the #location div.
     Uses Geolocation API.
+    now live location works.
 -->
 
 
@@ -25,7 +26,7 @@
 <script>
     // Check if the browser supports the Geolocation API
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.watchPosition(showPosition);
     } else {
         document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
     }
