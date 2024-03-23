@@ -1,0 +1,41 @@
+<!--
+    This code will ask the user for permission to access their location.
+    Then their latitude and longitude will be displayed in the #location div.
+    Uses Geolocation API.
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #location {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="location">Location will be displayed here</div>
+
+<script>
+    // Check if the browser supports the Geolocation API
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+    // This function gets called when the position is available
+    function showPosition(position) {
+        document.getElementById("location").innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+    }
+</script>
+
+</body>
+</html>
